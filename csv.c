@@ -3,5 +3,15 @@
 #include <string.h>
 
 int main(int argc, char *argv[]){
+
+	char *cur = argv[0]; 
+
+	int i = 0;
+	while (cur != 0){
+		cur = argv[i];
+		printf("%s\n", cur);
+		i++;
+	}
+
 	return 0;
 }
