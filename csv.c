@@ -28,26 +28,21 @@ int main(int argc, char *argv[]){
 	// print all characters in file
 	//char **cur_line = lines; // pointer to increment through lines array
 	char cur_char = getc(inFile); // current char in file
-	int i = 0;
 	while (cur_char != EOF){
 		//printf("%c", cur);
 		char *line = calloc(LENGTH, CHAR); 
 		char *cur = line; // to increment through line array
-		printf("%c\n", cur_char);
+		//printf("%c\n", cur_char);
 		while (cur_char != '\n'){
-			printf("%c = cur_char\n", cur_char);
+			//printf("%c = cur_char\n", cur_char);
 			// printf("%s\n", "made 1");
 			*cur = cur_char; // add char to line array
 			cur++; // increment to next spot in line array
 			cur_char = getc(inFile); // increment to next char in file
 		}
 		cur_char = getc(inFile); // increment to next char in file
-		printf("%s\n", "made 2\n");
-		i++;
-		if (i == 3){
-			return 0;
-		}
-		//printf("%s\n", line);
+		//printf("%s\n", "made 2\n");
+		printf("%s = line\n", line);
 		/**lines = line;
 		lines++;*/
 
