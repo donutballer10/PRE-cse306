@@ -11,3 +11,7 @@ options:
 
 other:
 parsing input options
+
+people:
+- erik: working on turning file into array of lines. currently can grab each line. ultimately want to be able to turn file into array of structs, if -h option is given, or maybe 
+even if that's missing, can just use numbers? don't know yet, not up to it yet anyways
