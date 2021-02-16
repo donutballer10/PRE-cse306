@@ -32,12 +32,14 @@ int main(int argc, char *argv[]){
 		//printf("%c", cur);
 		char *line = calloc(LENGTH, CHAR); 
 		char *cur = line; // to increment through line array
-		while (cur_char != '\n'){
+		printf("%s\n", "made it here");
+		while (cur_char != '\n' && cur_char != EOF){
+			printf("%c", cur_char);
 			*cur = cur_char; // add char to line array
 			cur++; // increment to next spot in line array
 			cur_char = getc(inFile); // increment to next char in file
 		}
-		printf("%s : line", line);
+		//printf("%s\n", line);
 		/**lines = line;
 		lines++;*/
 
