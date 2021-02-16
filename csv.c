@@ -18,10 +18,10 @@ int main(int argc, char *argv[]){
 	}
 
 	// print all characters in file
-	FILE *i = inFile;
-	while (getc(i) != EOF){
-		printf("%c", getc(i));
-		i++;
+	char cur = getc(inFile);
+	while (cur != EOF){
+		printf("%c", cur);
+		cur = getc(inFile);
 	}
 
 	fclose(inFile); // close file
