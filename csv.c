@@ -23,27 +23,28 @@ int main(int argc, char *argv[]){
 
 	// array of lines from the file
 	// pointer to array(pointer) of strings(pointer)? should i use '**' instead
-	char **lines = calloc(3, 100);
+	// char **lines = calloc(3, 100);
 
 	// print all characters in file
-	char **cur_line = lines; // pointer to increment through lines array
-	char cur = getc(inFile); // current char in file
-	while (cur != EOF){
+	//char **cur_line = lines; // pointer to increment through lines array
+	char cur_char = getc(inFile); // current char in file
+	while (cur_char != EOF){
 		//printf("%c", cur);
 		char *line = calloc(LENGTH, CHAR); 
-		char *cur_char = line; // to increment through line array
-		while (cur != '\n'){
-			*cur_char  = cur; // add char to line array
-			cur_char++; // increment to next spot in line array
-			getc(inFile); // increment to next char in file
+		char *cur = line; // to increment through line array
+		while (cur_char != '\n'){
+			*cur = cur_char; // add char to line array
+			cur++; // increment to next spot in line array
+			cur_char = getc(inFile); // increment to next char in file
 		}
-		*lines = line;
-		lines++;
+		printf("%s : line", line);
+		/**lines = line;
+		lines++;*/
 
 	}
 
 	// do i need to free each individual line? probably
-	free(lines);
+	//free(lines);
 	fclose(inFile); // close file
 
 	return 0;
