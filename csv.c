@@ -4,8 +4,6 @@
 
 int main(int argc, char *argv[]){
 
-	printf("%s \n", argv[1]);
-
 	FILE * inFile = NULL;
 
 	// assign file pointer to inFile
@@ -19,9 +17,11 @@ int main(int argc, char *argv[]){
 		return 0;
 	}
 
-	// print all character in file
-	while (getc(inFile) != EOF){
-		printf("%c", getc(in);
+	// print all characters in file
+	FILE *i = inFile;
+	while (getc(i) != EOF){
+		printf("%c", getc(i));
+		i++;
 	}
 
 	fclose(inFile); // close file
