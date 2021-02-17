@@ -5,6 +5,7 @@
 #include "functions/row_count.h"
 #include "functions/semi_group_operation.h"
 
+
 /*
 To execute the program run 
 gcc csv.c -o csv
