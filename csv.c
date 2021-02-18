@@ -44,7 +44,7 @@ int main(int argc, char *argv[]){
 		//printf("%s\n", "made 2\n");
 		//printf("%s = line\n", line);
 		*cur_line = line;
-		printf("%s = line array\n", *lines);
+		// printf("%s = line array\n", *lines);
 		cur_line++;
 
 	}
