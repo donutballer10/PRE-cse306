@@ -3,9 +3,11 @@
 #include <string.h>
 
 #define LINES 3
-#define LENGTH 100
+#define LINE_LEN 100
+#define WORD_LEN 50
 #define CHAR 1
 #define WHITESPACE ' '
+#define NEWLINE '\n'
 
 int main(int argc, char *argv[]){
 
@@ -23,24 +25,27 @@ int main(int argc, char *argv[]){
 	}
 
 	// array of lines from the file
-	// pointer to array(pointer) of strings(pointer)? should i use '**' instead
-	char **lines = calloc(3, 100);
+	// array of pointers to arrays of strings; lines[line[words]]
+	char ***lines_arr = calloc(3, 100);
 
 	// build array of lines
-	char **cur_line = lines; // pointer to increment through lines array
+	char ***cur_line = lines_arr; // pointer to increment through lines_arr array
 	char cur_char = getc(inFile); // current char in file
 	while (cur_char != EOF){
 
-		// build line array and add to lines array 
+		// build line array and add to lines_arr
 		// each line array consists of the words in that line
 		char **line = calloc(LENGTH, CHAR); 
 		char **cur = line; // to increment through line array
-		while (cur_char != '\n'){
+		while (cur_char != NEWLINE){
 
 			// build word
 			char *word = calloc(
-			while (cur_char != WHITESPACE){
+			char *cur_word = word;
+			while (cur_char != WHITESPACE && cur_char != NEWLINE){
+					
 			}	
+
 			*cur = cur_char; // add char to line array
 			cur++; // increment to next spot in line array
 			cur_char = getc(inFile); // increment to next char in file
@@ -51,21 +56,21 @@ int main(int argc, char *argv[]){
 
 	}
 
-	printf("%s = line array index 1\n", lines[0]);
-	printf("%s = line array index 2\n", lines[1]);
-	printf("%s = line array index 3\n", lines[2]);
+	printf("%s = line array index 1\n", lines_arr[0]);
+	printf("%s = line array index 2\n", lines_arr[1]);
+	printf("%s = line array index 3\n", lines_arr[2]);
 	
 	/*
-	// free each line in lines array
-	printf("%p = lines pointer later\n", lines);
-  cur_line = lines; // reset it, to increment through line array, this time to free 
+	// free each line in lines_arr
+	printf("%p = lines_arr pointer later\n", lines_arr);
+  cur_line = lines_arr; // reset it, to increment through line array, this time to free 
 	printf("%p = cur_line address when freeing\n", cur_line);
 	for (int i = 1; i <= LINES; i++){
 		//free((char *) free_cur);
 		printf("%s = line\n", (char *) cur_line);
 		cur_line++;
 	}*/
-	free(lines); // free lines array
+	free(lines_arr); // free lines_arr array
 	fclose(inFile); // close file
 
 	return 0;
