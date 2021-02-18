@@ -50,11 +50,13 @@ int main(int argc, char *argv[]){
 	}
 
 	// free each line in lines array
-  /*char **free_cur = lines; // pointer to increment through lines array, this time to free
+  char **free_cur = lines; // pointer to increment through lines array, this time to free
 	for (int i = 1; i < LINES; i++){
-		free((char *) free_cur);
+		//free((char *) free_cur);
+		char *line = (char *) free_cur;
+		printf("%s = line\n", line);
 		free_cur++;
-	}*/	
+	}	
 	free(lines); // free lines array
 	fclose(inFile); // close file
 
