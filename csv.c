@@ -24,6 +24,7 @@ int main(int argc, char *argv[]){
 	// array of lines from the file
 	// pointer to array(pointer) of strings(pointer)? should i use '**' instead
 	char **lines = calloc(3, 100);
+	printf("%p = lines pointer \n", lines);
 
 	// print all characters in file
 	char **cur_line = lines; // pointer to increment through lines array
@@ -35,27 +36,30 @@ int main(int argc, char *argv[]){
 		//printf("%c\n", cur_char);
 		while (cur_char != '\n'){
 			//printf("%c = cur_char\n", cur_char);
-			// printf("%s\n", "made 1");
 			*cur = cur_char; // add char to line array
 			cur++; // increment to next spot in line array
 			cur_char = getc(inFile); // increment to next char in file
 		}
 		cur_char = getc(inFile); // increment to next char in file
-		//printf("%s\n", "made 2\n");
 		//printf("%s = line\n", line);
 		*cur_line = line;
-		// printf("%s = line array\n", *lines);
+		printf("%s = line array in loop\n", *cur_line);
 		cur_line++;
 
 	}
+	printf("%s = line array index 1\n", lines[0]);
+	printf("%s = line array index 2\n", lines[1]);
+	printf("%s = line array index 3\n", lines[2]);
+	
 
 	// free each line in lines array
-  char **free_cur = lines; // pointer to increment through lines array, this time to free
-	for (int i = 1; i < LINES; i++){
+	printf("%p = lines pointer later\n", lines);
+  cur_line = lines; // reset it, to increment through line array, this time to free 
+	printf("%p = cur_line address when freeing\n", cur_line);
+	for (int i = 1; i <= LINES; i++){
 		//free((char *) free_cur);
-		char *line = (char *) free_cur;
-		printf("%s = line\n", line);
-		free_cur++;
+		printf("%s = line\n", (char *) cur_line);
+		cur_line++;
 	}	
 	free(lines); // free lines array
 	fclose(inFile); // close file
