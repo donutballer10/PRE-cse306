@@ -43,14 +43,19 @@ int main(int argc, char *argv[]){
 		cur_char = getc(inFile); // increment to next char in file
 		//printf("%s\n", "made 2\n");
 		//printf("%s = line\n", line);
-		*lines = line;
+		*cur_line = line;
 		printf("%s = line array\n", *lines);
 		cur_line++;
 
 	}
 
-	// do i need to free each individual line? probably
-	free(lines);
+	// free each line in lines array
+  /*char **free_cur = lines; // pointer to increment through lines array, this time to free
+	for (int i = 1; i < LINES; i++){
+		free((char *) free_cur);
+		free_cur++;
+	}*/	
+	free(lines); // free lines array
 	fclose(inFile); // close file
 
 	return 0;
