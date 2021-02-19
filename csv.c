@@ -36,7 +36,8 @@ int main(int argc, char *argv[]){
 		// build line array and add to lines_arr
 		// each line array consists of the words in that line
 		char **line = calloc(WORD_LEN, CHAR); 
-		char **cur = line; // to increment through line array
+		char **cur_line = line; // to increment through line array
+	_line
 		while (cur_char != NEWLINE){
 
 			// build word
@@ -47,8 +48,8 @@ int main(int argc, char *argv[]){
 				cur_word++;
 				cur_char = getc(inFile);
 			}	
-			*cur = word; // add word to line array
-			cur++;
+			*cur_line = word; // add word to line array
+			cur_line++;
 			cur_char = getc(inFile); // increment to next char in file
 
 		}
