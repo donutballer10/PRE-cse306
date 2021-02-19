@@ -26,8 +26,7 @@ int main(int argc, char *argv[]){
 
 	// array of lines from the file
 	// array of pointers to arrays of strings; lines[line[words]]
-	char ***rows = calloc(3, 100);
-
+	char ***rows = calloc(LINES, LINE_LEN);
 	// build array of lines
 	char ***cur_row = rows; // pointer to increment through rows array
 	char cur_char = getc(inFile); // current char in file
@@ -35,7 +34,7 @@ int main(int argc, char *argv[]){
 
 		// build line array and add to rows
 		// each line array consists of the words in that line
-		char **line = calloc(WORD_LEN, CHAR); 
+		char **line = calloc(LINE_LEN, WORD_LEN); 
 		char **cur_line = line; // to increment through line array
 		while (cur_char != NEWLINE){
 
