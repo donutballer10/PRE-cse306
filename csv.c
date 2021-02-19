@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "functions/get_dimensions.h"
-#include "functions/row_count.h"
+#include "functions/record.h"
 #include "functions/semi_group_operation.h"
 
 
@@ -36,6 +36,7 @@ int main (int argc, char *argv[]){
   printf("hello world! CSV!\n");
   get_rows();
   get_columns(get_columns);
+  record("hello","world");
   semi_group_operation(file_ptr,"mean",false,"hello");
                                                                                                 
   return 0;
