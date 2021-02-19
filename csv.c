@@ -26,18 +26,17 @@ int main(int argc, char *argv[]){
 
 	// array of lines from the file
 	// array of pointers to arrays of strings; lines[line[words]]
-	char ***lines_arr = calloc(3, 100);
+	char ***rows = calloc(3, 100);
 
 	// build array of lines
-	char ***cur_row = lines_arr; // pointer to increment through lines_arr array
+	char ***cur_row = rows; // pointer to increment through rows array
 	char cur_char = getc(inFile); // current char in file
 	while (cur_char != EOF){
 
-		// build line array and add to lines_arr
+		// build line array and add to rows
 		// each line array consists of the words in that line
 		char **line = calloc(WORD_LEN, CHAR); 
 		char **cur_line = line; // to increment through line array
-	_line
 		while (cur_char != NEWLINE){
 
 			// build word
@@ -58,21 +57,21 @@ int main(int argc, char *argv[]){
 
 	}
 
-	printf("%s = line array index 1\n", lines_arr[0]);
-	printf("%s = line array index 2\n", lines_arr[1]);
-	printf("%s = line array index 3\n", lines_arr[2]);
+	printf("%s = line array index 1\n", rows[0]);
+	printf("%s = line array index 2\n", rows[1]);
+	printf("%s = line array index 3\n", rows[2]);
 	
 	/*
-	// free each line in lines_arr
-	printf("%p = lines_arr pointer later\n", lines_arr);
-  cur_row = lines_arr; // reset it, to increment through line array, this time to free 
+	// free each line in rows
+	printf("%p = rows pointer later\n", rows);
+  cur_row = rows; // reset it, to increment through line array, this time to free 
 	printf("%p = cur_row address when freeing\n", cur_row);
 	for (int i = 1; i <= LINES; i++){
 		//free((char *) free_cur);
 		printf("%s = line\n", (char *) cur_row);
 		cur_row++;
 	}*/
-	free(lines_arr); // free lines_arr array
+	free(rows); // free rows array
 	fclose(inFile); // close file
 
 	return 0;
