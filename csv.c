@@ -42,7 +42,7 @@ int main(int argc, char *argv[]){
 			// build word
 			char *word = calloc(WORD_LEN, CHAR);
 			char *cur_word = word; // pointer to increment through word
-			while (cur_char != (WHITESPACE && NEWLINE && EOF)){
+			while (cur_char != WHITESPACE && cur_char != NEWLINE && cur_char && EOF){
 				*cur_word = cur_char;	
 				cur_word++;
 				cur_char = getc(inFile);
