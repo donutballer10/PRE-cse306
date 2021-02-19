@@ -33,6 +33,7 @@ int main(int argc, char *argv[]){
 	char cur_char = getc(inFile); // current char in file
 	while (cur_char != EOF){
 
+
 		//cur_char = getc(inFile); // or here?
 		// build line array and add to rows
 		// each line array consists of the words in that line
@@ -55,10 +56,12 @@ int main(int argc, char *argv[]){
 			// if whitespace, need next char, if newline, can't do it
 			cur_line++;
 
+
 		}
 		*cur_row = line; // add line to rows
 		cur_row++;
 		// cur_char = getc(inFile); // this is supposed to be either here...
+
 
 	}
 
