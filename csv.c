@@ -48,7 +48,6 @@ int main(int argc, char *argv[]){
 			}	
 			*cur_line = word; // add word to line array
 			cur_line++;
-			cur_char = getc(inFile); // increment to next char in file
 
 		}
 		*cur_row = line;
