@@ -40,15 +40,17 @@ int main(int argc, char *argv[]){
 		while (cur_char != NEWLINE){
 
 			// build word
-			char *word = calloc(
-			char *cur_word = word;
+			char *word = calloc(WORD_LEN, CHAR);
+			char *cur_word = word; // pointer to increment through word
 			while (cur_char != WHITESPACE && cur_char != NEWLINE){
-					
+				*cur_word = cur_char;	
+				cur_word++;
+				cur_char = getc(inFile);
 			}	
-
-			*cur = cur_char; // add char to line array
-			cur++; // increment to next spot in line array
+			*cur = word; // add word to line array
+			cur++;
 			cur_char = getc(inFile); // increment to next char in file
+
 		}
 		cur_char = getc(inFile); // increment to next char in file
 		*cur_line = line;
