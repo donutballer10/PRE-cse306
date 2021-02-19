@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-void get_columns(){
+void get_columns(FILE* file_ptr){
   printf("get columns count was called\n");
   return;
 }
