@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-void record(char *field_name, char *value){
+void get_record(char *field_name, char *value){
   printf("we're in record\n");
   return;
 }

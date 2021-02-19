@@ -6,41 +6,113 @@
 #include "functions/semi_group_operation.h"
 #include <string.h>
 
+#define r "-r"
+#define f "-f"
+#define h "-h"
+#define max "-max"
+#define min "-min"
+#define mean "-mean"
+#define records "-records"
+
+//it does not inlcude -f and -h becuase they are special cases handled inside the main
+char* determineOperation(char* operation){
+  if (strcmp(operation,r) == 0){
+    return r;
+  }else if (strcmp(operation,f) == 0){
+    return f;
+  }else if (strcmp(operation,h) == 0){
+    return h;
+  }else if (strcmp(operation,max) == 0){
+    return max;
+  }else if (strcmp(operation,min) == 0){
+    return min;
+  }else if (strcmp(operation,mean) == 0){
+    return mean;
+  }else if (strcmp(operation,records) == 0){
+    return records;
+  }else{
+    printf("unrecoginzed operator was passed\n");
+    return NULL;
+  }
+}
+
+void executeOperations(int *i,char* operator, char *argv[]){
+  
+  if (operator == r){
+    get_rows();
+  }
+  if (operator == f){
+    get_columns();
+  }
+  
+  //if the operator is not f or r, then other operators requires field name for valid input
+  char *field_name = argv[*i];
+ 
+  if (operator == min){
+    find_min(field_name);
+  }
+  if (operator == max){
+    find_max(field_name);
+  }
+  if (operator == mean){
+    find_mean(field_name);
+  }
+  if (operator == records){
+    //get the value we are searching for in record 
+    char *value = argv[++(*i)];
+    get_record(field_name,value);
+  }
+}
+
 int main (int argc, char *argv[]){
 
-  //error checking for arguments count
+  // we need atleast 2 arguments (for -f) for a valid input 
   if (argc < 3){
     printf("Invalid number of arguments\n");
     return EXIT_FAILURE;
   }
-  
-  //pointer which contains the file name
-  char *filename = argv[argc -1]; 
-                                                                    
-  FILE *file_ptr =fopen(filename,"r");
 
+  //last argument contains the file name
+  char *filename = argv[argc -1]; 
+ 
+  //open file for reading
+  FILE *file_ptr = fopen(filename,"r");
+
+  //only parse csv file
   if (file_ptr == NULL){
     printf("Unable to open the file\n");
     return EXIT_FAILURE;
   }
 
-  //arguments
-  char *f = "-f";
-  
   //skip the first argument as it's the name of the executable
   int i = 1;
 
+  //INCOMPLETE: if the argument contains -h or not loop and call initilize the csv parser struct based on that
+
   //skip the last argument as it's the name of the csv file 
   while ( i < argc - 1){
-    char *argument = argv[i];
     
-    if (strcmp(argument,f) == 0){
-      get_columns();
-      i++;
+    //get the first operator and move pointer to the next operator
+    char *operator = determineOperation(argv[i++]);
+    
+    if (operator == NULL){
+      return EXIT_FAILURE;
     }
+
+    if (operator == h){
+      operator = determineOperation(argv[i++]);
+    }
+
+    if (operator == NULL){
+      return EXIT_FAILURE;
+    }
+
+    executeOperations(&i, operator, argv);
+
+    i++;
   }
 
   fclose(file_ptr);
-                                                                                                
-  return 0;
+  
+  return EXIT_SUCCESS;
 }

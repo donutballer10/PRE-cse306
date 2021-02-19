@@ -2,6 +2,6 @@
 #ifndef RECORD_H
 #define RECORD_H
 
-void record(char*,char*);
+void get_record(char*,char*);
 
 #endif
