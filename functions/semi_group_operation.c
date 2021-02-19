@@ -1,18 +1,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-void max(FILE *file_pointer, bool containsH, char *feild_name){
-  printf("you're in the max function\n");
-  return;
-}
-
-void min(FILE *file_pointer, bool containsH, char *feild_name){
-  printf("you're in the min function\n");
+void semi_group_operation(FILE *file_pointer, char* operation_type, bool containsH, char *feild_name){
+  printf("you're in the semigroup operation function\n");
   return;
 }
 
 
-void mean(FILE *file_pointer, bool containsH, char *feild_name){
-  printf("you're in the mean function\n");
-  return;
-}
