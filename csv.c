@@ -44,7 +44,6 @@ int main(int argc, char *argv[]){
 		while (cur_char != NEWLINE){
 
 
-			// need getc() here, but then i'll skip first char
 			// build word
 			char *word = calloc(WORD_LEN, CHAR);
 			char *cur_word = word; // pointer to increment through word
