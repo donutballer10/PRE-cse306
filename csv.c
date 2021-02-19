@@ -30,7 +30,7 @@ int main(int argc, char *argv[]){
 	// array of pointers to arrays of strings; lines[line[words]]
 	char ***rows = calloc(LINES, LINE_LEN);
 	// build array of lines
-	bool newline = false; // for 2nd layer, so i know when to call getc() there
+	bool newline = false; // so i know when to call getc()
 	char ***cur_row = rows; // pointer to increment through rows array
 	char cur_char = getc(inFile); // current char in file
 	while (cur_char != EOF){
@@ -52,7 +52,7 @@ int main(int argc, char *argv[]){
 				cur_word++;
 				cur_char = getc(inFile);
 			}	
-			*cur_line = word; // add word to line array // whitespace char here, what happens then?
+			*cur_line = word; // add word to line array
 			cur_line++;
 
 			if (cur_char == EOF) { break; } // not sure if this break works as intended, i think so
@@ -64,7 +64,6 @@ int main(int argc, char *argv[]){
 		}
 		*cur_row = line; // add line to rows
 		cur_row++;
-		// cur_char = getc(inFile); // this is supposed to be either here...
 
 
 	}
@@ -80,8 +79,6 @@ int main(int argc, char *argv[]){
 	printf("%s\n", rows[2][0]);
 	printf("%s\n", rows[2][1]);
 	printf("%s\n", rows[2][2]);
-//	printf("%s = line array index 2\n", rows[1]);
-//	printf("%s = line array index 3\n", rows[2]);
 	
 	/*
 	// free each line in rows
