@@ -36,13 +36,13 @@ char* determineOperation(char* operation){
   }
 }
 
-void executeOperations(int *i,char* operator, char *argv[]){
+void executeOperations(int *i,char* operator, char *argv[],FILE* file_ptr,bool containsH){
   
   if (operator == r){
-    get_rows();
+    get_rows(file_ptr, containsH);
   }
   if (operator == f){
-    get_columns();
+    get_columns(file_ptr);
   }
   
   //if the operator is not f or r, then other operators requires field name for valid input
@@ -77,7 +77,7 @@ int main (int argc, char *argv[]){
  
   //open file for reading
   FILE *file_ptr = fopen(filename,"r");
-
+    
   //only parse csv file
   if (file_ptr == NULL){
     printf("Unable to open the file\n");
@@ -86,9 +86,16 @@ int main (int argc, char *argv[]){
 
   //skip the first argument as it's the name of the executable
   int i = 1;
+  bool containsH = false;
 
-  //INCOMPLETE: if the argument contains -h or not loop and call initilize the csv parser struct based on that
-
+  //determine if the arguments contains a header
+  for (int j = 1; j < argc - 1; j++){
+    char *argument = argv[j];
+    if (strcmp(argument,h) == 0){
+      containsH = true;
+      break;
+    }
+  }
   //skip the last argument as it's the name of the csv file 
   while ( i < argc - 1){
     
@@ -106,8 +113,8 @@ int main (int argc, char *argv[]){
     if (operator == NULL){
       return EXIT_FAILURE;
     }
-
-    executeOperations(&i, operator, argv);
+    
+    executeOperations(&i, operator, argv, file_ptr,containsH);
 
     i++;
   }
