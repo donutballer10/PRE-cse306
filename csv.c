@@ -70,8 +70,17 @@ int main(int argc, char *argv[]){
 
 	}
 
-	printf("%s = line array index 1\n", rows[0][0]);
-	printf("%s = line array index 1\n", rows[1][0]);
+	printf("%s\n", rows[0][0]);
+	printf("%s\n", rows[0][1]);
+	printf("%s\n", rows[0][2]);
+
+	printf("%s\n", rows[1][0]);
+	printf("%s\n", rows[1][1]);
+	printf("%s\n", rows[1][2]);
+
+	printf("%s\n", rows[2][0]);
+	printf("%s\n", rows[2][1]);
+	printf("%s\n", rows[2][2]);
 //	printf("%s = line array index 2\n", rows[1]);
 //	printf("%s = line array index 3\n", rows[2]);
 	
