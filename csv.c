@@ -36,13 +36,13 @@ char* determineOperation(char* operation){
   }
 }
 
-void executeOperations(int *i,char* operator, char *argv[]){
+void executeOperations(int *i,char* operator, char *argv[],FILE* file_ptr){
   
   if (operator == r){
     get_rows();
   }
   if (operator == f){
-    get_columns();
+    get_columns(file_ptr);
   }
   
   //if the operator is not f or r, then other operators requires field name for valid input
@@ -107,7 +107,7 @@ int main (int argc, char *argv[]){
       return EXIT_FAILURE;
     }
 
-    executeOperations(&i, operator, argv);
+    executeOperations(&i, operator, argv, file_ptr);
 
     i++;
   }
