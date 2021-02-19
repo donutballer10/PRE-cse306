@@ -30,6 +30,7 @@ int main(int argc, char *argv[]){
 	// array of pointers to arrays of strings; lines[line[words]]
 	char ***rows = calloc(LINES, LINE_LEN);
 	// build array of lines
+	bool newline = false; // for 2nd layer, so i know when to call getc() there
 	char ***cur_row = rows; // pointer to increment through rows array
 	char cur_char = getc(inFile); // current char in file
 	while (cur_char != EOF){
@@ -37,12 +38,11 @@ int main(int argc, char *argv[]){
 
 		// build line array and add to rows
 		// each line array consists of the words in that line
-		bool newline = false; // for 2nd layer, so i know when to call getc() there
 		char **line = calloc(LINE_LEN, WORD_LEN); 
 		char **cur_line = line; // to increment through line array
+		if (newline == true) { cur_char = getc(inFile); newline = false; }
 		while (cur_char != NEWLINE){
 
-			if (newline == true) { cur_char = getc(inFile); newline = false; }
 
 			// need getc() here, but then i'll skip first char
 			// build word
@@ -54,9 +54,6 @@ int main(int argc, char *argv[]){
 				cur_char = getc(inFile);
 			}	
 			*cur_line = word; // add word to line array // whitespace char here, what happens then?
-			// currently its not going to next character
-			cur_char = getc(inFile); // gotta do this for whitespace?
-			// if whitespace, need next char, if newline, can't do it
 			cur_line++;
 
 			if (cur_char == EOF) { break; } // not sure if this break works as intended, i think so
