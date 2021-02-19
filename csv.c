@@ -29,7 +29,7 @@ int main(int argc, char *argv[]){
 	char ***lines_arr = calloc(3, 100);
 
 	// build array of lines
-	char ***cur_line = lines_arr; // pointer to increment through lines_arr array
+	char ***cur_row = lines_arr; // pointer to increment through lines_arr array
 	char cur_char = getc(inFile); // current char in file
 	while (cur_char != EOF){
 
@@ -52,8 +52,8 @@ int main(int argc, char *argv[]){
 			cur_char = getc(inFile); // increment to next char in file
 
 		}
-		*cur_line = line;
-		cur_line++;
+		*cur_row = line;
+		cur_row++;
 
 	}
 
@@ -64,12 +64,12 @@ int main(int argc, char *argv[]){
 	/*
 	// free each line in lines_arr
 	printf("%p = lines_arr pointer later\n", lines_arr);
-  cur_line = lines_arr; // reset it, to increment through line array, this time to free 
-	printf("%p = cur_line address when freeing\n", cur_line);
+  cur_row = lines_arr; // reset it, to increment through line array, this time to free 
+	printf("%p = cur_row address when freeing\n", cur_row);
 	for (int i = 1; i <= LINES; i++){
 		//free((char *) free_cur);
-		printf("%s = line\n", (char *) cur_line);
-		cur_line++;
+		printf("%s = line\n", (char *) cur_row);
+		cur_row++;
 	}*/
 	free(lines_arr); // free lines_arr array
 	fclose(inFile); // close file
