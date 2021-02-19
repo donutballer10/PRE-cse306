@@ -7,21 +7,24 @@
 
 void get_columns(FILE* file_ptr){
   printf("get columns count was called\n");
+}
+
+void get_rows(FILE* file_ptr, bool containsH){
   
   char c;
   int count = 0;
+  
   while((c=fgetc(file_ptr)) != EOF){
     if ( c == '\n'){
       count++;
     }
-   
-    printf("%c",c);
   }
-  printf("%d\n",count);
-  return;
-}
 
-void get_rows(){
-  printf("get rows count was called\n");
+  if (containsH){
+    count = count - 1;
+  }
+  
+  printf("%d\n",count);
+
   return;
 }

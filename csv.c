@@ -36,10 +36,10 @@ char* determineOperation(char* operation){
   }
 }
 
-void executeOperations(int *i,char* operator, char *argv[],FILE* file_ptr){
+void executeOperations(int *i,char* operator, char *argv[],FILE* file_ptr,bool containsH){
   
   if (operator == r){
-    get_rows();
+    get_rows(file_ptr, containsH);
   }
   if (operator == f){
     get_columns(file_ptr);
@@ -77,8 +77,7 @@ int main (int argc, char *argv[]){
  
   //open file for reading
   FILE *file_ptr = fopen(filename,"r");
-  printf("%s\n",filename);
-  
+    
   //only parse csv file
   if (file_ptr == NULL){
     printf("Unable to open the file\n");
@@ -108,7 +107,7 @@ int main (int argc, char *argv[]){
       return EXIT_FAILURE;
     }
 
-    executeOperations(&i, operator, argv, file_ptr);
+    executeOperations(&i, operator, argv, file_ptr,false);
 
     i++;
   }
