@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 #define LINES 3
 #define LINE_LEN 100
 #define WORD_LEN 50
+// pretty sure im gonna use these, unlike the 3 above
 #define CHAR 1
-#define WHITESPACE ' '
 #define NEWLINE '\n'
 #define COMMA ','
 
@@ -34,12 +35,14 @@ int main(int argc, char *argv[]){
 	while (cur_char != EOF){
 
 
-		//cur_char = getc(inFile); // or here?
 		// build line array and add to rows
 		// each line array consists of the words in that line
+		bool newline = false; // for 2nd layer, so i know when to call getc() there
 		char **line = calloc(LINE_LEN, WORD_LEN); 
 		char **cur_line = line; // to increment through line array
 		while (cur_char != NEWLINE){
+
+			if (newline == true) { cur_char = getc(inFile); newline = false; }
 
 			// need getc() here, but then i'll skip first char
 			// build word
@@ -55,6 +58,11 @@ int main(int argc, char *argv[]){
 			cur_char = getc(inFile); // gotta do this for whitespace?
 			// if whitespace, need next char, if newline, can't do it
 			cur_line++;
+
+			if (cur_char == EOF) { break; } // not sure if this break works as intended, i think so
+			else if (cur_char == NEWLINE) { newline = true; }
+			// will the next char after a comma ever be a newline or EOF? i don't think so?
+			else if (cur_char == COMMA) { cur_char = getc(inFile); } 
 
 
 		}
