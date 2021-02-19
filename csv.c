@@ -52,7 +52,6 @@ int main(int argc, char *argv[]){
 			cur_char = getc(inFile); // increment to next char in file
 
 		}
-		cur_char = getc(inFile); // increment to next char in file
 		*cur_line = line;
 		cur_line++;
 
