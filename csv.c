@@ -37,7 +37,7 @@ int main(int argc, char *argv[]){
 		// each line array consists of the words in that line
 		char **line = calloc(LINE_LEN, WORD_LEN); 
 		char **cur_line = line; // to increment through line array
-		while (cur_char != NEWLINE && cur_char != WHITESPACE){
+		while (cur_char != NEWLINE){
 
 			// need getc() here, but then i'll skip first char
 			// build word
@@ -50,7 +50,8 @@ int main(int argc, char *argv[]){
 			}	
 			*cur_line = word; // add word to line array // whitespace char here, what happens then?
 			// currently its not going to next character
-			cur_char = getc(inFile);
+			cur_char = getc(inFile); // gotta do this for whitespace?
+			// if whitespace, need next char, if newline, can't do it
 			cur_line++;
 
 		}
