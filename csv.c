@@ -73,9 +73,10 @@ int main(int argc, char *argv[]){
 
 	}
 
-	printf("%s = line array index 1\n", rows[0]);
-	printf("%s = line array index 2\n", rows[1]);
-	printf("%s = line array index 3\n", rows[2]);
+	printf("%s = line array index 1\n", rows[0][0]);
+	printf("%s = line array index 1\n", rows[1][0]);
+//	printf("%s = line array index 2\n", rows[1]);
+//	printf("%s = line array index 3\n", rows[2]);
 	
 	/*
 	// free each line in rows
