@@ -77,7 +77,8 @@ int main (int argc, char *argv[]){
  
   //open file for reading
   FILE *file_ptr = fopen(filename,"r");
-
+  printf("%s\n",filename);
+  
   //only parse csv file
   if (file_ptr == NULL){
     printf("Unable to open the file\n");
