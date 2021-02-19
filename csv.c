@@ -32,7 +32,7 @@ int main(int argc, char *argv[]){
 	char cur_char = getc(inFile); // current char in file
 	while (cur_char != EOF){
 
-		cur_char = getc(inFile); // or here?
+		//cur_char = getc(inFile); // or here?
 		// build line array and add to rows
 		// each line array consists of the words in that line
 		char **line = calloc(LINE_LEN, WORD_LEN); 
