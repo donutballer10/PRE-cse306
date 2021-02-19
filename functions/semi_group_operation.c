@@ -1,8 +1,19 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-void semi_group_operation(FILE *file_pointer, char* operation_type, bool containsH, char *feild_name){
-  printf("you're in the semigroup operation function\n");
+void max(char *feild_name){
+  printf("you're in the max function\n");
+  return;
+}
+
+void min(char *feild_name){
+  printf("you're in the min function\n");
+  return;
+}
+
+
+void mean(char *feild_name){
+  printf("you're in the mean function\n");
   return;
 }
 
