@@ -1,4 +1,10 @@
 DATE,UBIT,DURATION,ACTIVITY & TOOL DESCRIPTION
-2021/02/17,amoghjos,3 hours,set up a directory and different headers to allow for multiple team members collaboration and created functions for each function call using emacs
-2021/02/17,amoghjos,2 hours,set up a trello board and assigned everyone tasks into 4 different files: column count, row count, semi group operation, search operation
-2021/02/18,amoghjos,3 hours,parsing the input from the command line and calling the appropriate methods
+2021/02/17,amoghjos,5 hours,set up a directory and different headers to allow for multiple team members collaboration and created functions for each function call using emacs. I had to learn about how how to use .h files and set up headers
+2021/02/17,amoghjos,2 hours,set up a trello board and assigned everyone tasks into 3 different files:dimension count, semi group operation (max,min,mean), record
+2021/02/18,amoghjos,8 hours,parsing the input from the command line and calling the appropriate methods: get_rows, get_column, get_max, get_min, get_mean, get_records
+2021/02/19,amoghjos,3 hours,asked a around 5 questions on Piazza to clarify on user input
+2021/02/19,amoghjos,3 hours, completed csv.c file which handles user input
+2021/02/19,amoghjos,5 hours,helped the team to understand the requirements and how each function inside the functions directory will be called so they can work on those functions
+2021/02/20,amoghjos,4 hours,completed -r function 
+2021/02/20,amoghjos,3 hours,set up basic logic of 2d array for parsing the csv file for the min, mean, max function to help other team members for its implemenation
+2021/02/20,amoghjos,1 hours,created different branches for different functions and reviewed pull requests

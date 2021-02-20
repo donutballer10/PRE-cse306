@@ -49,13 +49,13 @@ void executeOperations(int *i,char* operator, char *argv[],FILE* file_ptr,bool c
   char *field_name = argv[*i];
  
   if (operator == min){
-    find_min(field_name);
+    find_min(file_ptr, field_name);
   }
   if (operator == max){
-    find_max(field_name);
+    find_max(file_ptr, field_name);
   }
   if (operator == mean){
-    find_mean(field_name);
+    find_mean(file_ptr, field_name);
   }
   if (operator == records){
     //get the value we are searching for in record 
