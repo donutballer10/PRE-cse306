@@ -3,6 +3,7 @@
 
 void max(FILE *file_pointer, bool containsH, char *field_name){
   printf("you're in the max function\n");
+  
   return;
 }
 
