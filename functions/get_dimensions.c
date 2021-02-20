@@ -9,7 +9,8 @@ void get_columns(FILE* file_ptr){
   
   char c;
   int strlc = 0; //counter to not include commas within string literals
-  int count = 0; //counter for columns
+  int count = 0; //counter for commas
+  int columns = 0; //counter for number of columns present in csv
   
   while((c=fgetc(file_ptr)) != '\n'){
     if ( c == '\"'){
@@ -20,7 +21,8 @@ void get_columns(FILE* file_ptr){
     }else{
     }
   }
-  printf("%d\n",count);
+  columns = count + 1; //3 commas found would indicate presence of 4 fields.
+  printf("%d\n",columns);
 
   return;
 }
